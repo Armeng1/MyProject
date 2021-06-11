@@ -66,8 +66,7 @@ public class RoomBookApi {
     	editbook.setEndDate(book.getEndDate());
     	editbook.setStartTime(book.getEndTime());
     	editbook.setEndTime(book.getEndTime());
-    	editbook.setRemark(book.getRemark());
-    	editbook.setStatus(book.getStatus());
+
     	return this.regisReps.save(editbook);
     }
 }

@@ -59,7 +59,7 @@ public class RoomBookApi {
     	BooksRoomEntity editbook = this.regisReps.findById(Id)
     		.orElseThrow(() -> new ResourceNotFoundException("book"+" "+Id+" "+"not found"));
     	editbook.setEmail(book.getEmail());
-    	editbook.setName(book.getName());
+
     	return this.regisReps.save(editbook);
     }
 

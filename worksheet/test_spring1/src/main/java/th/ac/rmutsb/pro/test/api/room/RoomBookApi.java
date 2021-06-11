@@ -60,6 +60,14 @@ public class RoomBookApi {
     		.orElseThrow(() -> new ResourceNotFoundException("book"+" "+Id+" "+"not found"));
     	editbook.setEmail(book.getEmail());
     	editbook.setName(book.getName());
+    	editbook.setTitle(book.getTitle());
+    	editbook.setRoom(book.getRoom());
+    	editbook.setStartDate(book.getStartDate());
+    	editbook.setEndDate(book.getEndDate());
+    	editbook.setStartTime(book.getEndTime());
+    	editbook.setEndTime(book.getEndTime());
+    	editbook.setRemark(book.getRemark());
+    	editbook.setStatus(book.getStatus());
     	return this.regisReps.save(editbook);
     }
 

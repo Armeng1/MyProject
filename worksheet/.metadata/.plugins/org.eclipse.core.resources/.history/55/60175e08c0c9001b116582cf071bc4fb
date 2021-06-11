@@ -1,9 +1,0 @@
-package th.ac.rmutsb.pro.test.repository;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import th.ac.rmutsb.pro.test.entity.Carentity;
-
-public interface CarRepository extends JpaRepository<Carentity, Long>{
-
-}

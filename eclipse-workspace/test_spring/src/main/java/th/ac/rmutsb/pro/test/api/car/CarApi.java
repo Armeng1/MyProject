@@ -38,10 +38,12 @@ public class CarApi {
 	 public Page<Carentity> getCarsPages(@RequestParam(defaultValue = "0") int page , @RequestParam(defaultValue = "10") int size) {
 	  return this.reps.findAll(PageRequest.of(page, size));
 	 }
+	
 	@PostMapping
 	public Carentity createCar(@RequestBody Carentity car) {
 		return this.reps.save(car);
 	}
+	
 	@DeleteMapping("/{id}")
 	public Carentity deleteCar(@PathVariable(value = "id") Long carId){
 		Carentity car = this.reps.findById(carId)
@@ -55,7 +57,6 @@ public class CarApi {
     	Carentity editcar = this.reps.findById(carId)
             .orElseThrow(() -> new ResourceNotFoundException("room"+" "+carId+" "+"not found"));
         editcar.setCarPhoto(car.getCarPhoto());
-        editcar.setCarRegistration(car.getCarRegistration());
     	editcar.setCarColor(car.getCarColor());
     	editcar.setCarBrand(car.getCarBrand());
         editcar.setCarNumber(car.getCarNumber());

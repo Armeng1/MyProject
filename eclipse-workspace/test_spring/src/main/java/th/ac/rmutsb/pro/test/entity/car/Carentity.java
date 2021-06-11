@@ -12,10 +12,10 @@ public class Carentity {
 	private long carId;
 
 	 private String carPhoto;
-	 private String carRegistration;
 	 private String carColor;
 	 private String carBrand;
 	 private String carNumber;
+
 	 
 
 		/*@ManyToOne(fetch=FetchType.LAZY)
@@ -34,12 +34,6 @@ public class Carentity {
 		}
 		public void setCarPhoto(String carPhoto) {
 			this.carPhoto = carPhoto;
-		}
-		public String getCarRegistration() {
-			return carRegistration;
-		}
-		public void setCarRegistration(String carRegistration) {
-			this.carRegistration = carRegistration;
 		}
 		public String getCarColor() {
 			return carColor;

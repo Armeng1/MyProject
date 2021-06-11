@@ -1,0 +1,8 @@
+package th.ac.rmutsb.pro.test.repository;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface CarRegisterRepository {
+
+}

@@ -29,9 +29,9 @@ public class RoomApi {
 
 
     @GetMapping("/{id}")
-    public RoomsEntity getRoom(@PathVariable(value= "id")Long Roomid) {
-        return this.reps.findById(Roomid)
-                .orElseThrow(() -> new ResourceNotFoundException("room"+" "+Roomid+" "+"not found"));
+    public RoomsEntity getRoom(@PathVariable(value= "id")Long id) {
+        return this.reps.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("room"+" "+id+" "+"not found"));
     }
 
     @GetMapping("/lists")
@@ -51,17 +51,17 @@ public class RoomApi {
     
 
     @DeleteMapping("/{id}")
-    public RoomsEntity deleteRoom(@PathVariable(value= "id")Long Roomid) {
-        RoomsEntity room = this.reps.findById(Roomid)
-                .orElseThrow(() -> new ResourceNotFoundException("room"+" "+Roomid+" "+"not found"));
+    public RoomsEntity deleteRoom(@PathVariable(value= "id")Long id) {
+        RoomsEntity room = this.reps.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("room"+" "+id+" "+"not found"));
         this.reps.delete(room);
         return room;
     }
 
     @PutMapping("/{id}")
-    public RoomsEntity updateRoom(@PathVariable (value= "id") Long Roomid, @RequestBody RoomsEntity room) {
-    	RoomsEntity editroom = this.reps.findById(Roomid)
-    		.orElseThrow(() -> new ResourceNotFoundException("room"+" "+Roomid+" "+"not found"));
+    public RoomsEntity updateRoom(@PathVariable (value= "id") Long id, @RequestBody RoomsEntity room) {
+    	RoomsEntity editroom = this.reps.findById(id)
+    		.orElseThrow(() -> new ResourceNotFoundException("room"+" "+id+" "+"not found"));
     	editroom.setRoomName(room.getRoomName());
     	editroom.setPhoto(room.getPhoto());
     	editroom.setTitle(room.getTitle());

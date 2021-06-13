@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import th.ac.rmutsb.pro.test.entity.room.RoomsEntity;
+import th.ac.rmutsb.pro.test.entity.room.RoomEntity;
 import th.ac.rmutsb.pro.test.exception.ResourceNotFoundException;
 import th.ac.rmutsb.pro.test.model.RoomModel;
 import th.ac.rmutsb.pro.test.repository.room.RoomRepository;
@@ -29,38 +29,38 @@ public class RoomApi {
 
 
     @GetMapping("/{id}")
-    public RoomsEntity getRoom(@PathVariable(value= "id")Long id) {
+    public RoomEntity getRoom(@PathVariable(value= "id")Long id) {
         return this.reps.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("room"+" "+id+" "+"not found"));
     }
 
     @GetMapping("/lists")
-    public List<RoomsEntity> getRooms() {
+    public List<RoomEntity> getRooms() {
         return this.reps.findAll();
     }
 
     @GetMapping
-    public Page<RoomsEntity> getRoomsPages(@RequestParam(defaultValue = "0") int page , @RequestParam(defaultValue = "10") int size) {
+    public Page<RoomEntity> getRoomsPages(@RequestParam(defaultValue = "0") int page , @RequestParam(defaultValue = "10") int size) {
     	return this.reps.findAll(PageRequest.of(page, size));
     }
 
     @PostMapping
-    public RoomsEntity createRoom(@RequestBody RoomsEntity room) {
+    public RoomEntity createRoom(@RequestBody RoomEntity room) {
         return this.reps.save(room);
       }
     
 
     @DeleteMapping("/{id}")
-    public RoomsEntity deleteRoom(@PathVariable(value= "id")Long id) {
-        RoomsEntity room = this.reps.findById(id)
+    public RoomEntity deleteRoom(@PathVariable(value= "id")Long id) {
+        RoomEntity room = this.reps.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("room"+" "+id+" "+"not found"));
         this.reps.delete(room);
         return room;
     }
 
     @PutMapping("/{id}")
-    public RoomsEntity updateRoom(@PathVariable (value= "id") Long id, @RequestBody RoomsEntity room) {
-    	RoomsEntity editroom = this.reps.findById(id)
+    public RoomEntity updateRoom(@PathVariable (value= "id") Long id, @RequestBody RoomEntity room) {
+    	RoomEntity editroom = this.reps.findById(id)
     		.orElseThrow(() -> new ResourceNotFoundException("room"+" "+id+" "+"not found"));
     	editroom.setRoomName(room.getRoomName());
     	editroom.setPhoto(room.getPhoto());

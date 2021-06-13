@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import th.ac.rmutsb.pro.test.entity.room.RoomEntity;
+import th.ac.rmutsb.pro.test.entity.room.RoomsEntity;
 import th.ac.rmutsb.pro.test.exception.ResourceNotFoundException;
 import th.ac.rmutsb.pro.test.model.RoomModel;
 import th.ac.rmutsb.pro.test.repository.room.RoomRepository;
@@ -29,43 +29,45 @@ public class RoomApi {
 
 
     @GetMapping("/{id}")
-    public RoomEntity getRoom(@PathVariable(value= "id")Long Roomid) {
+    public RoomsEntity getRoom(@PathVariable(value= "id")Long Roomid) {
         return this.reps.findById(Roomid)
                 .orElseThrow(() -> new ResourceNotFoundException("room"+" "+Roomid+" "+"not found"));
     }
 
     @GetMapping("/lists")
-    public List<RoomEntity> getRooms() {
+    public List<RoomsEntity> getRooms() {
         return this.reps.findAll();
     }
 
     @GetMapping
-    public Page<RoomEntity> getRoomsPages(@RequestParam(defaultValue = "0") int page , @RequestParam(defaultValue = "10") int size) {
+    public Page<RoomsEntity> getRoomsPages(@RequestParam(defaultValue = "0") int page , @RequestParam(defaultValue = "10") int size) {
     	return this.reps.findAll(PageRequest.of(page, size));
     }
 
     @PostMapping
-    public RoomEntity createRoom(@RequestBody RoomEntity room) {
+    public RoomsEntity createRoom(@RequestBody RoomsEntity room) {
         return this.reps.save(room);
       }
     
 
     @DeleteMapping("/{id}")
-    public RoomEntity deleteRoom(@PathVariable(value= "id")Long Roomid) {
-        RoomEntity room = this.reps.findById(Roomid)
+    public RoomsEntity deleteRoom(@PathVariable(value= "id")Long Roomid) {
+        RoomsEntity room = this.reps.findById(Roomid)
                 .orElseThrow(() -> new ResourceNotFoundException("room"+" "+Roomid+" "+"not found"));
         this.reps.delete(room);
         return room;
     }
 
     @PutMapping("/{id}")
-    public RoomEntity updateRoom(@PathVariable (value= "id") Long Roomid, @RequestBody RoomEntity room) {
-    	RoomEntity editroom = this.reps.findById(Roomid)
+    public RoomsEntity updateRoom(@PathVariable (value= "id") Long Roomid, @RequestBody RoomsEntity room) {
+    	RoomsEntity editroom = this.reps.findById(Roomid)
     		.orElseThrow(() -> new ResourceNotFoundException("room"+" "+Roomid+" "+"not found"));
     	editroom.setRoomName(room.getRoomName());
-    	editroom.setAmount(room.getAmount());
-    	editroom.setRoomPicture(room.getRoomPicture());
+    	editroom.setPhoto(room.getPhoto());
+    	editroom.setTitle(room.getTitle());
+    	editroom.setRoomLimit(room.getRoomLimit());
     	editroom.setRoomDetail(room.getRoomDetail());
+    	editroom.setRemark(room.getRemark());
     	return this.reps.save(editroom);
     }
 }

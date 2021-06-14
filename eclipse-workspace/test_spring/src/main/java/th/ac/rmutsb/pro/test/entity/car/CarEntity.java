@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Carentity {
+public class CarEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long carId;
@@ -14,14 +14,16 @@ public class Carentity {
 		private String carBrand;
 		private String carNumber;
 		private String carPhoto;
-		private int carSize;
-		private String carDetail;
+		private int size;
+		private String detail;
+		private String carColor;
 	 
 
 		/*@ManyToOne(fetch=FetchType.LAZY)
 	    @JoinColumn(name="car_type" ,insertable = true, updatable = true)
 	    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
 	    private CarTypeEntity carType;*/
+		
 		public long getCarId() {
 			return carId;
 		}
@@ -46,17 +48,17 @@ public class Carentity {
 		public void setCarPhoto(String carPhoto) {
 			this.carPhoto = carPhoto;
 		}
-		public int getCarSize() {
-			return carSize;
+		public int getSize() {
+			return size;
 		}
-		public void setCarSize(int carSize) {
-			this.carSize = carSize;
+		public void setSize(int size) {
+			this.size = size;
 		}
-		public String getCarDetail() {
-			return carDetail;
+		public String getDetail() {
+			return detail;
 		}
-		public void setCarDetail(String carDetail) {
-			this.carDetail = carDetail;
+		public void setDetail(String detail) {
+			this.detail = detail;
 		}
 		public String getCarColor() {
 			return carColor;
@@ -64,7 +66,7 @@ public class Carentity {
 		public void setCarColor(String carColor) {
 			this.carColor = carColor;
 		}
-		private String carColor;
+		
 
 	
 		/*@Override

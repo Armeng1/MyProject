@@ -59,8 +59,8 @@ public class CarApi {
     	editcar.setCarBrand(car.getCarBrand());
         editcar.setCarNumber(car.getCarNumber());
     	editcar.setCarPhoto(car.getCarPhoto());
-    	editcar.setCarsize(car.getCarsize());
-    	editcar.setCardetail(car.getCardetail());
+    	editcar.setCarSize(car.getCarSize());
+    	editcar.setCarDetail(car.getCarDetail());
     	editcar.setCarColor(car.getCarColor());
     	
     	

@@ -14,8 +14,8 @@ public class Carentity {
 		private String carBrand;
 		private String carNumber;
 		private String carPhoto;
-		private String carsize;
-		private String cardetail;
+		private String carSize;
+		private String carDetail;
 	 
 
 		/*@ManyToOne(fetch=FetchType.LAZY)
@@ -46,18 +46,6 @@ public class Carentity {
 		public void setCarPhoto(String carPhoto) {
 			this.carPhoto = carPhoto;
 		}
-		public String getCarsize() {
-			return carsize;
-		}
-		public void setCarsize(String carsize) {
-			this.carsize = carsize;
-		}
-		public String getCardetail() {
-			return cardetail;
-		}
-		public void setCardetail(String cardetail) {
-			this.cardetail = cardetail;
-		}
 		public String getCarColor() {
 			return carColor;
 		}
@@ -65,6 +53,20 @@ public class Carentity {
 			this.carColor = carColor;
 		}
 		private String carColor;
+
+
+		public String getCarSize() {
+			return carSize;
+		}
+		public void setCarSize(String carSize) {
+			this.carSize = carSize;
+		}
+		public String getCarDetail() {
+			return carDetail;
+		}
+		public void setCarDetail(String carDetail) {
+			this.carDetail = carDetail;
+		}
 		
 
 		/*@Override

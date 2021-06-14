@@ -66,6 +66,7 @@ public class RoomApi {
     	editroom.setPhoto(room.getPhoto());
     	editroom.setRoomLimit(room.getRoomLimit());
     	editroom.setRoomDetail(room.getRoomDetail());
+    	
     	return this.reps.save(editroom);
     	
     }

@@ -58,7 +58,7 @@ public class CarApi {
             .orElseThrow(() -> new ResourceNotFoundException("room"+" "+carId+" "+"not found"));
         editcar.setCarPhoto(car.getCarPhoto());
     	editcar.setCarColor(car.getCarColor());
-    	
+    	editcar.setCarBrand(car.getCarBrand());
         editcar.setCarNumber(car.getCarNumber());
         return this.reps.save(editcar);
     }

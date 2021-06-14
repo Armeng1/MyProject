@@ -17,13 +17,11 @@ public class CarEntity {
 		private int size;
 		private String detail;
 		private String carColor;
-	 
 
 		/*@ManyToOne(fetch=FetchType.LAZY)
 	    @JoinColumn(name="car_type" ,insertable = true, updatable = true)
 	    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
 	    private CarTypeEntity carType;*/
-		
 		public long getCarId() {
 			return carId;
 		}

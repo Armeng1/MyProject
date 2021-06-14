@@ -64,10 +64,8 @@ public class RoomApi {
     		.orElseThrow(() -> new ResourceNotFoundException("room"+" "+id+" "+"not found"));
     	editroom.setRoomName(room.getRoomName());
     	editroom.setPhoto(room.getPhoto());
-    	editroom.setTitle(room.getTitle());
     	editroom.setRoomLimit(room.getRoomLimit());
     	editroom.setRoomDetail(room.getRoomDetail());
-    	editroom.setRemark(room.getRemark());
     	return this.reps.save(editroom);
     	
     }

@@ -13,10 +13,8 @@ public class RoomEntity {
 	
 	private String roomName;
 	private String photo;
-	private String title;
 	private int roomLimit;
 	private String roomDetail;
-	private String remark;
 	
 	public long getId() {
 		return Id;
@@ -36,12 +34,6 @@ public class RoomEntity {
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
 	public int getRoomLimit() {
 		return roomLimit;
 	}
@@ -54,11 +46,6 @@ public class RoomEntity {
 	public void setRoomDetail(String roomDetail) {
 		this.roomDetail = roomDetail;
 	}
-	public String getRemark() {
-		return remark;
-	}
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
+
 
 }

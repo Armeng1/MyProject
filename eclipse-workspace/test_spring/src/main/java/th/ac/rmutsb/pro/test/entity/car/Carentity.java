@@ -14,7 +14,7 @@ public class Carentity {
 		private String carBrand;
 		private String carNumber;
 		private String carPhoto;
-		private String carSize;
+		private int carSize;
 		private String carDetail;
 	 
 
@@ -46,10 +46,10 @@ public class Carentity {
 		public void setCarPhoto(String carPhoto) {
 			this.carPhoto = carPhoto;
 		}
-		public String getCarSize() {
+		public int getCarSize() {
 			return carSize;
 		}
-		public void setCarSize(String carSize) {
+		public void setCarSize(int carSize) {
 			this.carSize = carSize;
 		}
 		public String getCarDetail() {

@@ -10,11 +10,13 @@ public class Carentity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long carId;
-
-	 private String carPhoto;
-	 private String carColor;
-	 private String carBrand;
-	 private String carNumber;
+	
+		private String carBrand;
+		private String carNumber;
+		private String carPhoto;
+		private String carsize;
+		private String cardetail;
+		
 
 	 
 
@@ -22,24 +24,11 @@ public class Carentity {
 	    @JoinColumn(name="car_type" ,insertable = true, updatable = true)
 	    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
 	    private CarTypeEntity carType;*/
-		
 		public long getCarId() {
 			return carId;
 		}
 		public void setCarId(long carId) {
 			this.carId = carId;
-		}
-		public String getCarPhoto() {
-			return carPhoto;
-		}
-		public void setCarPhoto(String carPhoto) {
-			this.carPhoto = carPhoto;
-		}
-		public String getCarColor() {
-			return carColor;
-		}
-		public void setCarColor(String carColor) {
-			this.carColor = carColor;
 		}
 		public String getCarBrand() {
 			return carBrand;
@@ -53,6 +42,32 @@ public class Carentity {
 		public void setCarNumber(String carNumber) {
 			this.carNumber = carNumber;
 		}
+		public String getCarPhoto() {
+			return carPhoto;
+		}
+		public void setCarPhoto(String carPhoto) {
+			this.carPhoto = carPhoto;
+		}
+		public String getCarsize() {
+			return carsize;
+		}
+		public void setCarsize(String carsize) {
+			this.carsize = carsize;
+		}
+		public String getCardetail() {
+			return cardetail;
+		}
+		public void setCardetail(String cardetail) {
+			this.cardetail = cardetail;
+		}
+		public String getCarColor() {
+			return carColor;
+		}
+		public void setCarColor(String carColor) {
+			this.carColor = carColor;
+		}
+		private String carColor;
+		
 
 		/*@Override
 	    public String toString() {

@@ -46,7 +46,6 @@ public class Carentity {
 		public void setCarPhoto(String carPhoto) {
 			this.carPhoto = carPhoto;
 		}
-<<<<<<< HEAD
 		public String getCarSize() {
 			return carSize;
 		}
@@ -59,8 +58,6 @@ public class Carentity {
 		public void setCarDetail(String carDetail) {
 			this.carDetail = carDetail;
 		}
-=======
->>>>>>> 41bddd921da7cdb6967598f338b4a7d29f67a387
 		public String getCarColor() {
 			return carColor;
 		}
@@ -69,21 +66,7 @@ public class Carentity {
 		}
 		private String carColor;
 
-
-		public String getCarSize() {
-			return carSize;
-		}
-		public void setCarSize(String carSize) {
-			this.carSize = carSize;
-		}
-		public String getCarDetail() {
-			return carDetail;
-		}
-		public void setCarDetail(String carDetail) {
-			this.carDetail = carDetail;
-		}
-		
-
+	
 		/*@Override
 	    public String toString() {
 	        return "Carentity [carId=" + carId + ", carPhoto=" + carPhoto + ", carRegistration=" + carRegistration + ","

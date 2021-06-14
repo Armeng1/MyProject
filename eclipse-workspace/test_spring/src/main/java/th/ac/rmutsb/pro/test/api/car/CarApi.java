@@ -56,10 +56,12 @@ public class CarApi {
     public Carentity updatecar(@PathVariable (value= "id") Long carId, @RequestBody Carentity car) {
     	Carentity editcar = this.reps.findById(carId)
             .orElseThrow(() -> new ResourceNotFoundException("room"+" "+carId+" "+"not found"));
-        editcar.setCarPhoto(car.getCarPhoto());
-    	editcar.setCarColor(car.getCarColor());
     	editcar.setCarBrand(car.getCarBrand());
         editcar.setCarNumber(car.getCarNumber());
+    	editcar.setCarPhoto(car.getCarPhoto());
+    	editcar.setCarSize(car.getCarSize());
+    	editcar.setCarDetail(car.getCarDetail());
+    	editcar.setCarColor(car.getCarColor());
         return this.reps.save(editcar);
     }
 }

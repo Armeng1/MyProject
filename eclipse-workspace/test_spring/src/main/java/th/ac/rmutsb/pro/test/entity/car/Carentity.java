@@ -16,8 +16,6 @@ public class Carentity {
 		private String carPhoto;
 		private String carsize;
 		private String cardetail;
-		
-
 	 
 
 		/*@ManyToOne(fetch=FetchType.LAZY)

@@ -13,7 +13,7 @@ public class BooksCarEntity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long Id;
 	
-	private String CarModel;
+	private CarEntity car;
 	private String email;
 	private String name;
 	private String title;

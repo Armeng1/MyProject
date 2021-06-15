@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-public class BooksRoomEntity {
+public class RoomBookEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long Id;

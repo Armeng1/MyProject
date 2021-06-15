@@ -16,7 +16,7 @@ public class BooksRoomEntity {
 	private String email;
 	private String name;
 	private String title;
-	private String room;
+	private String roomName;
 	
 	@JsonFormat(pattern = "dd-MM-yyyy")
 	private String startDate;
@@ -24,14 +24,14 @@ public class BooksRoomEntity {
 	@JsonFormat(pattern = "dd-MM-yyyy")
 	private String endDate;
 	
-	@JsonFormat(pattern = "hh:mm:ss a")
+	@JsonFormat(pattern = "HH:mm:ss a")
 	private String startTime;
 	
-	@JsonFormat(pattern = "hh:mm:ss a")
+	@JsonFormat(pattern = "HH:mm:ss a")
 	private String endTime;
 	private String remark;
 	private String status;
-	
+
 	
 	public Long getId() {
 		return Id;
@@ -57,11 +57,11 @@ public class BooksRoomEntity {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getRoom() {
-		return room;
+	public String getRoomName() {
+		return roomName;
 	}
-	public void setRoom(String room) {
-		this.room = room;
+	public void setRoomName(String roomName) {
+		this.roomName = roomName;
 	}
 	public String getStartDate() {
 		return startDate;

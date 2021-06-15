@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import th.ac.rmutsb.pro.test.entity.car.BooksCarEntity;
 
+
 @Repository
 public interface CarBooksRepository extends JpaRepository<BooksCarEntity, Long>{
 

@@ -33,7 +33,7 @@ public class CarBookApi {
     }
 	
     @GetMapping("/lists")
-    public List<BooksCarEntity> getBkcar() {
+    public List<BooksCarEntity> getCars() {
         return this.regisReps.findAll();
     }
     

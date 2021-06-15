@@ -16,8 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import th.ac.rmutsb.pro.test.entity.room.RoomBookEntity;
+
 import th.ac.rmutsb.pro.test.entity.room.RoomEntity;
+import th.ac.rmutsb.pro.test.entity.room.RoomsBookEntity;
 import th.ac.rmutsb.pro.test.exception.ResourceNotFoundException;
 import th.ac.rmutsb.pro.test.model.RoomBookModel;
 import th.ac.rmutsb.pro.test.repository.room.RoomBooksRepository;
@@ -31,25 +32,25 @@ public class RoomBookApi {
 	@Autowired private RoomRepository reps;
 	
 	@GetMapping("/{id}")
-    public RoomBookEntity getBook(@PathVariable(value= "id")Long Id) {
+    public RoomsBookEntity getBook(@PathVariable(value= "id")Long Id) {
         return this.regisReps.findById(Id)
                 .orElseThrow(() -> new ResourceNotFoundException("room"+" "+Id+" "+"not found"));
     }
 	
     @GetMapping("/lists")
-    public List<RoomBookEntity> getRooms() {
+    public List<RoomsBookEntity> getRooms() {
         return this.regisReps.findAll();
     }
     
     @GetMapping
-    public Page<RoomBookEntity> getBookPages(@RequestParam(defaultValue = "0") int page , @RequestParam(defaultValue = "10") int size) {
+    public Page<RoomsBookEntity> getBookPages(@RequestParam(defaultValue = "0") int page , @RequestParam(defaultValue = "10") int size) {
     	return this.regisReps.findAll(PageRequest.of(page, size));
     }
     
     @PostMapping
-    public RoomBookEntity createBook(@RequestBody RoomBookModel book) {
+    public RoomsBookEntity createBook(@RequestBody RoomBookModel book) {
     	//System.out.println("room name : " + book.getRoomName());
-    	RoomBookEntity entity = new RoomBookEntity();
+    	RoomsBookEntity entity = new RoomsBookEntity();
     	entity.setEmail(book.getEmail());
     	entity.setName(book.getName());
     	entity.setTitle(book.getTitle());
@@ -70,16 +71,16 @@ public class RoomBookApi {
     }
 
     @DeleteMapping("/{id}")
-    public RoomBookEntity deleteBook(@PathVariable(value= "id")Long Id) {
-    	RoomBookEntity book = this.regisReps.findById(Id)
+    public RoomsBookEntity deleteBook(@PathVariable(value= "id")Long Id) {
+    	RoomsBookEntity book = this.regisReps.findById(Id)
                 .orElseThrow(() -> new ResourceNotFoundException("book"+" "+Id+" "+"not found"));
         this.regisReps.delete(book);
         return book;
     }
     
     @PutMapping("/{id}")
-    public RoomBookEntity updateBook(@PathVariable (value= "id") Long Id, @RequestBody RoomBookEntity book) {
-    	RoomBookEntity editbook = this.regisReps.findById(Id)
+    public RoomsBookEntity updateBook(@PathVariable (value= "id") Long Id, @RequestBody RoomsBookEntity book) {
+    	RoomsBookEntity editbook = this.regisReps.findById(Id)
     		.orElseThrow(() -> new ResourceNotFoundException("book"+" "+Id+" "+"not found"));
     	editbook.setEmail(book.getEmail());
     	editbook.setName(book.getName());

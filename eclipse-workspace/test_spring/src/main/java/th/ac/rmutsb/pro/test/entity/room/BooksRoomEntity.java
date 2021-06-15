@@ -46,7 +46,6 @@ public class BooksRoomEntity {
 	public RoomEntity getRoom() {
 		return room;
 	}
-	
 	public void setRoom(RoomEntity room) {
 		this.room = room;
 	}

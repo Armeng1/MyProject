@@ -59,7 +59,7 @@ public class CarBookApi {
     public BooksCarEntity updateBkcar(@PathVariable (value= "id") Long Id, @RequestBody BooksCarEntity bkcar) {
     	BooksCarEntity editbkcar = this.regisReps.findById(Id)
     		.orElseThrow(() -> new ResourceNotFoundException("bkcar"+" "+Id+" "+"not found"));
-    	editbkcar.setCarModel(bkcar.getCarModel());
+    	//editbkcar.setCarModel(bkcar.getCarModel());
     	editbkcar.setEmail(bkcar.getEmail());
     	editbkcar.setName(bkcar.getName());
     	editbkcar.setTitle(bkcar.getTitle());

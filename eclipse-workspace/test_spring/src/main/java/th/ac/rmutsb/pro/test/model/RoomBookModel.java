@@ -2,8 +2,8 @@ package th.ac.rmutsb.pro.test.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class BookModel {
-	private long bookRoom;
+public class RoomBookModel {
+	private long roomBook;
 	private String email;
 	private String name;
 	private String title;
@@ -22,11 +22,13 @@ public class BookModel {
 	private String endTime;
 	private String remark;
 	private String status;
-	public long getBookRoom() {
-		return bookRoom;
+
+
+	public long getRoomBook() {
+		return roomBook;
 	}
-	public void setBookRoom(long bookRoom) {
-		this.bookRoom = bookRoom;
+	public void setRoomBook(long roomBook) {
+		this.roomBook = roomBook;
 	}
 	public String getEmail() {
 		return email;

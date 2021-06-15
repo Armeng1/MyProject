@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import th.ac.rmutsb.pro.test.entity.room.BooksRoomEntity;
 import th.ac.rmutsb.pro.test.entity.room.RoomEntity;
 import th.ac.rmutsb.pro.test.exception.ResourceNotFoundException;
-import th.ac.rmutsb.pro.test.model.BookModel;
+import th.ac.rmutsb.pro.test.model.RoomBookModel;
 import th.ac.rmutsb.pro.test.repository.room.RoomBooksRepository;
 import th.ac.rmutsb.pro.test.repository.room.RoomRepository;
 
@@ -47,7 +47,8 @@ public class RoomBookApi {
     }
     
     @PostMapping
-    public BooksRoomEntity createBook(@RequestBody BookModel book) {
+    public BooksRoomEntity createBook(@RequestBody RoomBookModel book) {
+    	//System.out.println("room name : " + book.getRoomName());
     	BooksRoomEntity entity = new BooksRoomEntity();
     	entity.setEmail(book.getEmail());
     	entity.setName(book.getName());
@@ -60,13 +61,13 @@ public class RoomBookApi {
     	entity.setRemark(book.getRemark());
     	entity.setStatus(book.getStatus());
  
-    	Optional<RoomEntity> op = this.reps.findById(book.getBookRoom());
+    	Optional<RoomEntity> op = this.reps.findById(book.getRoomBook());
     	if(op.isPresent()) {
     		entity.setRoom(op.get());
     	}
     	return this.regisReps.save(entity);
     	//return this.regisReps.save(room);
-      }
+    }
 
     @DeleteMapping("/{id}")
     public BooksRoomEntity deleteBook(@PathVariable(value= "id")Long Id) {

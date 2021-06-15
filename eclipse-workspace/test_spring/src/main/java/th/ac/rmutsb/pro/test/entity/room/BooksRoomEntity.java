@@ -17,6 +17,7 @@ public class BooksRoomEntity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long Id;
 	
+
 	private String email;
 	private String name;
 	private String title;
@@ -35,8 +36,19 @@ public class BooksRoomEntity {
 	private String endTime;
 	private String remark;
 	private String status;
-
 	
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="room_entity" ,insertable = true, updatable = true)
+	@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
+	private RoomEntity room;
+	
+	
+	public RoomEntity getRoom() {
+		return room;
+	}
+	public void setRoom(RoomEntity room) {
+		this.room = room;
+	}
 	public Long getId() {
 		return Id;
 	}
@@ -103,5 +115,10 @@ public class BooksRoomEntity {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-
+	@Override
+	public String toString() {
+		return "BooksRoomEntity [Id=" + Id + ", email=" + email + ", name=" + name + ", title=" + title + ", roomName="
+				+ roomName + ", startDate=" + startDate + ", endDate=" + endDate + ", startTime=" + startTime
+				+ ", endTime=" + endTime + ", remark=" + remark + ", status=" + status + ", room=" + room + "]";
+	}
 }

@@ -24,10 +24,10 @@ public class BooksCarEntity {
 	@JsonFormat(pattern = "dd-MM-yyyy")
 	private String endDate;
 	
-	@JsonFormat(pattern = "hh:mm:ss a")
+	@JsonFormat(pattern = "HH:mm:ss ")
 	private String startTime;
 	
-	@JsonFormat(pattern = "hh:mm:ss a")
+	@JsonFormat(pattern = "HH:mm:ss ")
 	private String endTime;
 	private String remark;
 	private String status;

@@ -61,7 +61,7 @@ public class RoomBookApi {
     	editbook.setEmail(book.getEmail());
     	editbook.setName(book.getName());
     	editbook.setTitle(book.getTitle());
-    	editbook.setRoom(book.getRoom());
+    	editbook.setRoomName(book.getRoomName());
     	editbook.setStartDate(book.getStartDate());
     	editbook.setEndDate(book.getEndDate());
     	editbook.setStartTime(book.getStartTime());

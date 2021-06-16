@@ -2,7 +2,7 @@ package th.ac.rmutsb.pro.test.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class BookCarModel {
+public class CarBookModel {
 	
 	private long bookCar;
 	private String email;

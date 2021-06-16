@@ -3,7 +3,7 @@ package th.ac.rmutsb.pro.test.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class RoomBookModel {
-	private long bookId;
+	private long roomId;
 	private String email;
 	private String name;
 	private String title;
@@ -24,12 +24,11 @@ public class RoomBookModel {
 	private String status;
 
 
-
-	public long getBookId() {
-		return bookId;
+	public long getRoomId() {
+		return roomId;
 	}
-	public void setBookId(long bookId) {
-		this.bookId = bookId;
+	public void setRoomId(long roomId) {
+		this.roomId = roomId;
 	}
 	public String getEmail() {
 		return email;

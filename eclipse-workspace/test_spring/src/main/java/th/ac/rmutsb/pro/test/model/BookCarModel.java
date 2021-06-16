@@ -1,26 +1,14 @@
-package th.ac.rmutsb.pro.test.entity.car;
-
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+package th.ac.rmutsb.pro.test.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-
-@Entity
-public class BooksCarEntity {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long Id;
+public class BookCarModel {
 	
+	private long bookCar;
 	private String email;
 	private String name;
 	private String title;
+	private String roomName;
 	
 	@JsonFormat(pattern = "dd-MM-yyyy")
 	private String startDate;
@@ -35,23 +23,11 @@ public class BooksCarEntity {
 	private String endTime;
 	private String remark;
 	private String status;
-	
-	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="car_entity" ,insertable = true, updatable = true)
-	@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
-	private CarEntity car;
-	
-	public CarEntity getCar() {
-		return car;
+	public long getBookCar() {
+		return bookCar;
 	}
-	public void setCar(CarEntity car) {
-		this.car = car;
-	}
-	public Long getId() {
-		return Id;
-	}
-	public void setId(Long id) {
-		Id = id;
+	public void setBookCar(long bookCar) {
+		this.bookCar = bookCar;
 	}
 	public String getEmail() {
 		return email;
@@ -70,6 +46,12 @@ public class BooksCarEntity {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public String getRoomName() {
+		return roomName;
+	}
+	public void setRoomName(String roomName) {
+		this.roomName = roomName;
 	}
 	public String getStartDate() {
 		return startDate;

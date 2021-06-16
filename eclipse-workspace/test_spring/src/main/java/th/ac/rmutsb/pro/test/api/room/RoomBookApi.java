@@ -48,21 +48,21 @@ public class RoomBookApi {
     }
     
     @PostMapping
-    public RoomBookEntity createBook(@RequestBody RoomBookModel book) {
+    public RoomBookEntity createBook(@RequestBody RoomBookModel roombook) {
     	//System.out.println("room name : " + book.getRoomName());
     	RoomBookEntity entity = new RoomBookEntity();
-    	entity.setEmail(book.getEmail());
-    	entity.setName(book.getName());
-    	entity.setTitle(book.getTitle());
-    	entity.setRoomName(book.getRoomName());
-    	entity.setStartDate(book.getStartDate());
-    	entity.setEndDate(book.getEndDate());
-    	entity.setStartTime(book.getStartTime());
-    	entity.setEndTime(book.getEndTime());
-    	entity.setRemark(book.getRemark());
-    	entity.setStatus(book.getStatus());
+    	entity.setEmail(roombook.getEmail());
+    	entity.setName(roombook.getName());
+    	entity.setTitle(roombook.getTitle());
+    	entity.setRoomName(roombook.getRoomName());
+    	entity.setStartDate(roombook.getStartDate());
+    	entity.setEndDate(roombook.getEndDate());
+    	entity.setStartTime(roombook.getStartTime());
+    	entity.setEndTime(roombook.getEndTime());
+    	entity.setRemark(roombook.getRemark());
+    	entity.setStatus(roombook.getStatus());
  
-    	Optional<RoomEntity> op = this.reps.findById(book.getBookId());
+    	Optional<RoomEntity> op = this.reps.findById(roombook.getBookId());
     	if(op.isPresent()) {
     		entity.setRoom(op.get());
     	}

@@ -90,6 +90,7 @@ public class RoomBookApi {
     	editbook.setEndTime(book.getEndTime());
     	editbook.setRemark(book.getRemark());
     	editbook.setStatus(book.getStatus());
+    	editbook.setRoom(book.getRoom());
     	return this.regisReps.save(editbook);
     }
 }

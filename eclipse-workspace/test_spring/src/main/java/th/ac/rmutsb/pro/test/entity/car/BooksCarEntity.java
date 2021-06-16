@@ -21,7 +21,7 @@ public class BooksCarEntity {
 	private String email;
 	private String name;
 	private String title;
-	
+	private String carBrand;
 	@JsonFormat(pattern = "dd-MM-yyyy")
 	private String startDate;
 	
@@ -70,6 +70,13 @@ public class BooksCarEntity {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	
+	public String getCarBrand() {
+		return carBrand;
+	}
+	public void setCarBrand(String carBrand) {
+		this.carBrand = carBrand;
 	}
 	public String getStartDate() {
 		return startDate;

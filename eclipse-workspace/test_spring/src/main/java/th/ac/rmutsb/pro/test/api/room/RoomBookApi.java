@@ -62,7 +62,7 @@ public class RoomBookApi {
     	entity.setRemark(book.getRemark());
     	entity.setStatus(book.getStatus());
  
-    	Optional<RoomEntity> op = this.reps.findById(book.getRoomBook());
+    	Optional<RoomEntity> op = this.reps.findById(book.getBookId());
     	if(op.isPresent()) {
     		entity.setRoom(op.get());
     	}

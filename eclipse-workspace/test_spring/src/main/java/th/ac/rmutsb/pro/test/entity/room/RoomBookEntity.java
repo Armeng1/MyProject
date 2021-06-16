@@ -105,7 +105,7 @@ public class RoomBookEntity {
 	public RoomEntity getRoom() {
 		return room;
 	}
-	public void setRoom(RoomEntity room) {
+	public void setRoom( RoomEntity room) {
 		this.room = room;
 	}
 	@Override

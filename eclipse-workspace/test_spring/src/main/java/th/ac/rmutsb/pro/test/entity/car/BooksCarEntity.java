@@ -107,5 +107,11 @@ public class BooksCarEntity {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	@Override
+	public String toString() {
+		return "BooksCarEntity [Id=" + Id + ", email=" + email + ", name=" + name + ", title=" + title + ", startDate="
+				+ startDate + ", endDate=" + endDate + ", startTime=" + startTime + ", endTime=" + endTime + ", remark="
+				+ remark + ", status=" + status + ", car=" + car + "]";
+	}
 	
 }

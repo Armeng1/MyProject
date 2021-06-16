@@ -3,11 +3,10 @@ package th.ac.rmutsb.pro.test.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class RoomBookModel {
-	private long bookId;
+	private long roomId;
 	private String email;
 	private String name;
 	private String title;
-	private String roomName;
 	
 	@JsonFormat(pattern = "dd-MM-yyyy")
 	private String startDate;
@@ -22,14 +21,12 @@ public class RoomBookModel {
 	private String endTime;
 	private String remark;
 	private String status;
-
-
-
-	public long getBookId() {
-		return bookId;
+	
+	public long getRoomId() {
+		return roomId;
 	}
-	public void setBookId(long bookId) {
-		this.bookId = bookId;
+	public void setRoomId(long roomId) {
+		this.roomId = roomId;
 	}
 	public String getEmail() {
 		return email;
@@ -48,12 +45,6 @@ public class RoomBookModel {
 	}
 	public void setTitle(String title) {
 		this.title = title;
-	}
-	public String getRoomName() {
-		return roomName;
-	}
-	public void setRoomName(String roomName) {
-		this.roomName = roomName;
 	}
 	public String getStartDate() {
 		return startDate;

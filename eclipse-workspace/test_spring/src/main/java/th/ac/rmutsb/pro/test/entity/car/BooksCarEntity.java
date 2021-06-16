@@ -1,11 +1,16 @@
 package th.ac.rmutsb.pro.test.entity.car;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Entity
 public class BooksCarEntity {
@@ -31,6 +36,17 @@ public class BooksCarEntity {
 	private String remark;
 	private String status;
 	
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="car_entity" ,insertable = true, updatable = true)
+	@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
+	private CarEntity car;
+	
+	public CarEntity getCar() {
+		return car;
+	}
+	public void setCar(CarEntity car) {
+		this.car = car;
+	}
 	public Long getId() {
 		return Id;
 	}
@@ -90,6 +106,12 @@ public class BooksCarEntity {
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	@Override
+	public String toString() {
+		return "BooksCarEntity [Id=" + Id + ", email=" + email + ", name=" + name + ", title=" + title + ", startDate="
+				+ startDate + ", endDate=" + endDate + ", startTime=" + startTime + ", endTime=" + endTime + ", remark="
+				+ remark + ", status=" + status + ", car=" + car + "]";
 	}
 	
 }

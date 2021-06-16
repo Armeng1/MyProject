@@ -1,26 +1,15 @@
-package th.ac.rmutsb.pro.test.entity.room;
-
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+package th.ac.rmutsb.pro.test.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@Entity
-public class RoomBookEntity {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long Id;
+public class CarBookModel {
 	
-
+	private long carId;
 	private String email;
 	private String name;
 	private String title;
+	private String roomName;
+	
 	
 	@JsonFormat(pattern = "dd-MM-yyyy")
 	private String startDate;
@@ -35,18 +24,13 @@ public class RoomBookEntity {
 	private String endTime;
 	private String remark;
 	private String status;
-	
-	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="room_entity" ,insertable = true, updatable = true)
-	@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
-	private RoomEntity room;
-	
 
-	public Long getId() {
-		return Id;
+	
+	public long getCarId() {
+		return carId;
 	}
-	public void setId(Long id) {
-		Id = id;
+	public void setCarId(long carId) {
+		this.carId = carId;
 	}
 	public String getEmail() {
 		return email;
@@ -65,6 +49,12 @@ public class RoomBookEntity {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public String getRoomName() {
+		return roomName;
+	}
+	public void setRoomName(String roomName) {
+		this.roomName = roomName;
 	}
 	public String getStartDate() {
 		return startDate;
@@ -102,16 +92,5 @@ public class RoomBookEntity {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public RoomEntity getRoom() {
-		return room;
-	}
-	public void setRoom(RoomEntity room) {
-		this.room = room;
-	}
-	@Override
-	public String toString() {
-		return "RoomBookEntity [Id=" + Id + ", email=" + email + ", name=" + name + ", title=" + title + ", startDate="
-				+ startDate + ", endDate=" + endDate + ", startTime=" + startTime + ", endTime=" + endTime + ", remark="
-				+ remark + ", status=" + status + ", room=" + room + "]";
-	}
+	
 }

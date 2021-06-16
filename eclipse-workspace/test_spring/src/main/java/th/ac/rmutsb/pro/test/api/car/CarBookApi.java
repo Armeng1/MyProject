@@ -1,6 +1,7 @@
 package th.ac.rmutsb.pro.test.api.car;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -16,8 +17,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import th.ac.rmutsb.pro.test.entity.car.BooksCarEntity;
+import th.ac.rmutsb.pro.test.entity.car.CarEntity;
 import th.ac.rmutsb.pro.test.exception.ResourceNotFoundException;
+import th.ac.rmutsb.pro.test.model.BookCarModel;
 import th.ac.rmutsb.pro.test.repository.car.CarBooksRepository;
+import th.ac.rmutsb.pro.test.repository.car.CarRepository;
 
 
 
@@ -25,6 +29,7 @@ import th.ac.rmutsb.pro.test.repository.car.CarBooksRepository;
 @RestController
 public class CarBookApi {
 @Autowired private CarBooksRepository regisReps;
+@Autowired private CarRepository reps;
 	
 	@GetMapping("/{id}")
     public BooksCarEntity getBkcar(@PathVariable(value= "id")Long Id) {
@@ -43,8 +48,23 @@ public class CarBookApi {
     }
     
     @PostMapping
-    public BooksCarEntity createBook(@RequestBody BooksCarEntity bkcar) {
-        return this.regisReps.save(bkcar);
+    public BooksCarEntity createBook(@RequestBody BookCarModel bkcar) {
+    	BooksCarEntity entitycar = new BooksCarEntity();
+    	entitycar.setEmail(bkcar.getEmail());
+    	entitycar.setName(bkcar.getName());
+    	entitycar.setTitle(bkcar.getTitle());
+    	entitycar.setStartDate(bkcar.getStartDate());
+    	entitycar.setEndDate(bkcar.getEndDate());
+    	entitycar.setStartTime(bkcar.getStartTime());
+    	entitycar.setEndTime(bkcar.getEndTime());
+    	entitycar.setRemark(bkcar.getRemark());
+    	entitycar.setStatus(bkcar.getStatus());
+    	
+    	Optional<CarEntity> opcar = this.reps.findById(bkcar.getBookCar());
+    	if(opcar.isPresent()) {
+    		entitycar.setCar(opcar.get());
+    	}
+    	return this.regisReps.save(entitycar);
       }
 
     @DeleteMapping("/{id}")

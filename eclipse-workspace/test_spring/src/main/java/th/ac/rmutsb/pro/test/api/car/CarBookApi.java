@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import th.ac.rmutsb.pro.test.entity.car.BooksCarEntity;
 import th.ac.rmutsb.pro.test.entity.car.CarEntity;
 import th.ac.rmutsb.pro.test.exception.ResourceNotFoundException;
-import th.ac.rmutsb.pro.test.model.CarBooksModel;
+import th.ac.rmutsb.pro.test.model.CarBookModel;
 import th.ac.rmutsb.pro.test.repository.car.CarBooksRepository;
 import th.ac.rmutsb.pro.test.repository.car.CarRepository;
 
@@ -48,7 +48,7 @@ public class CarBookApi {
     }
     
     @PostMapping
-    public BooksCarEntity createBook(@RequestBody CarBooksModel bkcar) {
+    public BooksCarEntity createBook(@RequestBody CarBookModel bkcar) {
     	BooksCarEntity entitycar = new BooksCarEntity();
     	entitycar.setEmail(bkcar.getEmail());
     	entitycar.setName(bkcar.getName());

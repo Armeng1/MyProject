@@ -60,7 +60,7 @@ public class CarBookApi {
     	entitycar.setRemark(bkcar.getRemark());
     	entitycar.setStatus(bkcar.getStatus());
     	
-    	Optional<CarEntity> opcar = this.reps.findById(bkcar.getBookCar());
+    	Optional<CarEntity> opcar = this.reps.findById(bkcar.getCarId());
     	if(opcar.isPresent()) {
     		entitycar.setCar(opcar.get());
     	}

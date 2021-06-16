@@ -21,7 +21,6 @@ public class RoomBookEntity {
 	private String email;
 	private String name;
 	private String title;
-	private String roomName;
 	
 	@JsonFormat(pattern = "dd-MM-yyyy")
 	private String startDate;
@@ -42,13 +41,7 @@ public class RoomBookEntity {
 	@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
 	private RoomEntity room;
 	
-	
-	public RoomEntity getRoom() {
-		return room;
-	}
-	public void setRoom(RoomEntity room) {
-		this.room = room;
-	}
+
 	public Long getId() {
 		return Id;
 	}
@@ -72,12 +65,6 @@ public class RoomBookEntity {
 	}
 	public void setTitle(String title) {
 		this.title = title;
-	}
-	public String getRoomName() {
-		return roomName;
-	}
-	public void setRoomName(String roomName) {
-		this.roomName = roomName;
 	}
 	public String getStartDate() {
 		return startDate;
@@ -115,10 +102,16 @@ public class RoomBookEntity {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	public RoomEntity getRoom() {
+		return room;
+	}
+	public void setRoom(RoomEntity room) {
+		this.room = room;
+	}
 	@Override
 	public String toString() {
-		return "BooksRoomEntity [Id=" + Id + ", email=" + email + ", name=" + name + ", title=" + title + ", roomName="
-				+ roomName + ", startDate=" + startDate + ", endDate=" + endDate + ", startTime=" + startTime
-				+ ", endTime=" + endTime + ", remark=" + remark + ", status=" + status + ", room=" + room + "]";
+		return "RoomBookEntity [Id=" + Id + ", email=" + email + ", name=" + name + ", title=" + title + ", startDate="
+				+ startDate + ", endDate=" + endDate + ", startTime=" + startTime + ", endTime=" + endTime + ", remark="
+				+ remark + ", status=" + status + ", room=" + room + "]";
 	}
 }

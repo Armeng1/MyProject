@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class CarBookModel {
 	
-	private long bookCar;
+	private long carId;
 	private String email;
 	private String name;
 	private String title;
@@ -24,11 +24,13 @@ public class CarBookModel {
 	private String endTime;
 	private String remark;
 	private String status;
-	public long getBookCar() {
-		return bookCar;
+
+	
+	public long getCarId() {
+		return carId;
 	}
-	public void setBookCar(long bookCar) {
-		this.bookCar = bookCar;
+	public void setCarId(long carId) {
+		this.carId = carId;
 	}
 	public String getEmail() {
 		return email;

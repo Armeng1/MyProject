@@ -54,7 +54,6 @@ public class RoomBookApi {
     	entity.setEmail(roombook.getEmail());
     	entity.setName(roombook.getName());
     	entity.setTitle(roombook.getTitle());
-    	entity.setRoomName(roombook.getRoomName());
     	entity.setStartDate(roombook.getStartDate());
     	entity.setEndDate(roombook.getEndDate());
     	entity.setStartTime(roombook.getStartTime());
@@ -85,7 +84,6 @@ public class RoomBookApi {
     	editbook.setEmail(book.getEmail());
     	editbook.setName(book.getName());
     	editbook.setTitle(book.getTitle());
-    	editbook.setRoomName(book.getRoomName());
     	editbook.setStartDate(book.getStartDate());
     	editbook.setEndDate(book.getEndDate());
     	editbook.setStartTime(book.getStartTime());

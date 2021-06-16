@@ -8,9 +8,7 @@ public class CarBookModel {
 	private String email;
 	private String name;
 	private String title;
-	private String roomName;
-	
-	
+
 	@JsonFormat(pattern = "dd-MM-yyyy")
 	private String startDate;
 	
@@ -49,12 +47,6 @@ public class CarBookModel {
 	}
 	public void setTitle(String title) {
 		this.title = title;
-	}
-	public String getRoomName() {
-		return roomName;
-	}
-	public void setRoomName(String roomName) {
-		this.roomName = roomName;
 	}
 	public String getStartDate() {
 		return startDate;

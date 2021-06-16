@@ -51,5 +51,6 @@ public class RoomEntity {
 	public void setRoomDetail(String roomDetail) {
 		this.roomDetail = roomDetail;
 	}
+	
 
 }

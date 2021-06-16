@@ -17,7 +17,6 @@ public class RoomBookEntity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long Id;
 	
-
 	private String email;
 	private String name;
 	private String title;
@@ -36,12 +35,11 @@ public class RoomBookEntity {
 	private String remark;
 	private String status;
 	
-	@OneToOne(fetch=FetchType.LAZY)
+	@OneToOne(fetch=FetchType.LAZY )
 	@JoinColumn(name="room_entity" ,insertable = true, updatable = true)
 	@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
 	private RoomEntity room;
 	
-
 	public Long getId() {
 		return Id;
 	}

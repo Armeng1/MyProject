@@ -1,5 +1,6 @@
 package th.ac.rmutsb.pro.test.entity.room;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -14,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class RoomEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "Id", unique = true, nullable = false)
 	private long Id;
 	
 	private String roomName;

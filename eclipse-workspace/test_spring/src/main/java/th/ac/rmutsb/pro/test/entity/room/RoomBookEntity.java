@@ -1,5 +1,6 @@
 package th.ac.rmutsb.pro.test.entity.room;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -35,7 +36,7 @@ public class RoomBookEntity {
 	private String remark;
 	private String status;
 	
-	@OneToOne(fetch=FetchType.LAZY )
+	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="room_entity" ,insertable = true, updatable = true)
 	@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
 	private RoomEntity room;

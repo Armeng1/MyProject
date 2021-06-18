@@ -22,6 +22,9 @@ public class RoomBookModel {
 	private String remark;
 	private String status;
 	
+	public RoomBookModel() {
+	}
+	
 	public long getRoomId() {
 		return roomId;
 	}

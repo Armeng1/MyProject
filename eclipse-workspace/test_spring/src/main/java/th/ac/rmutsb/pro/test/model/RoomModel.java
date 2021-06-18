@@ -1,13 +1,21 @@
 package th.ac.rmutsb.pro.test.model;
 
 public class RoomModel {
+	private long Id;
 	private String roomName;
-	private String amount;
-	private String roomPicture;
+	private String photo;
+	private int roomLimit;
 	private String roomDetail;
-	private long type;
 	
 	public RoomModel() {
+	}
+
+	public long getId() {
+		return Id;
+	}
+
+	public void setId(long id) {
+		Id = id;
 	}
 
 	public String getRoomName() {
@@ -18,20 +26,20 @@ public class RoomModel {
 		this.roomName = roomName;
 	}
 
-	public String getAmount() {
-		return amount;
+	public String getPhoto() {
+		return photo;
 	}
 
-	public void setAmount(String amount) {
-		this.amount = amount;
-	}
-	
-	public String getRoomPicture() {
-		return roomPicture;
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 
-	public void setRoomPicture(String roomPicture) {
-		this.roomPicture = roomPicture;
+	public int getRoomLimit() {
+		return roomLimit;
+	}
+
+	public void setRoomLimit(int roomLimit) {
+		this.roomLimit = roomLimit;
 	}
 
 	public String getRoomDetail() {
@@ -42,11 +50,5 @@ public class RoomModel {
 		this.roomDetail = roomDetail;
 	}
 
-	public long getType() {
-		return type;
-	}
-
-	public void setType(long type) {
-		this.type = type;
-	}
+	
 }

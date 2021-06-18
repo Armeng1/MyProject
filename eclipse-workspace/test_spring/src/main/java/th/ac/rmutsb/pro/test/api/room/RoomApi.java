@@ -47,9 +47,8 @@ public class RoomApi {
     @PostMapping
     public RoomEntity createRoom(@RequestBody RoomEntity room) {
         return this.reps.save(room);
-      }
+    }
     
-
     @DeleteMapping("/{id}")
     public RoomEntity deleteRoom(@PathVariable(value= "id")Long id) {
         RoomEntity room = this.reps.findById(id)
@@ -67,6 +66,5 @@ public class RoomApi {
     	editroom.setRoomLimit(room.getRoomLimit());
     	editroom.setRoomDetail(room.getRoomDetail());
     	return this.reps.save(editroom);
-    	
     }
 }

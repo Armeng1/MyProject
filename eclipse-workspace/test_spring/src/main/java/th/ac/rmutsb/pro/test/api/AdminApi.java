@@ -1,5 +1,10 @@
 package th.ac.rmutsb.pro.test.api;
 
-public class AdminApi {
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+@RequestMapping("/admin")
+@RestController
+public class AdminApi {
+	
 }

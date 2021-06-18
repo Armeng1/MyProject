@@ -8,5 +8,5 @@ import th.ac.rmutsb.pro.test.entity.room.RoomBookEntity;
 
 @Repository
 public interface RoomBooksRepository extends JpaRepository<RoomBookEntity, Long>{
-
+	
 }

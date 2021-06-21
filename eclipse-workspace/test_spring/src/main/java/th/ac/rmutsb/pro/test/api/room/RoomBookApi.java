@@ -37,6 +37,12 @@ public class RoomBookApi {
                 .orElseThrow(() -> new ResourceNotFoundException("room"+" "+Id+" "+"not found"));
     }
 	
+	@GetMapping("/status")
+	public List<RoomBookEntity> getStatus() {
+        return this.regisReps.findByStatus("");
+    }
+    
+	
     @GetMapping("/lists")
     public List<RoomBookEntity> getRooms() {
         return this.regisReps.findAll();

@@ -34,6 +34,11 @@ public class RoomApi {
                 .orElseThrow(() -> new ResourceNotFoundException("room"+" "+id+" "+"not found"));
     }
 
+    @GetMapping("/limits")
+    public List<RoomEntity> getLimits() {
+        return this.reps.findByRoomLimitGreaterThanEqual(0);
+    }
+    
     @GetMapping("/lists")
     public List<RoomEntity> getRooms() {
         return this.reps.findAll();

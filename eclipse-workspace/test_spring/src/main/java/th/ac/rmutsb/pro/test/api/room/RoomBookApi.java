@@ -39,7 +39,7 @@ public class RoomBookApi {
 	
 	@GetMapping("/status")
 	public List<RoomBookEntity> getStatus() {
-        return this.regisReps.findByStatus("");
+        return this.regisReps.findByStatus("1");
     }
     
 	

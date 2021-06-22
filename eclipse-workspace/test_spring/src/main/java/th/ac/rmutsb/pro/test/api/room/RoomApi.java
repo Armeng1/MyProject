@@ -51,28 +51,29 @@ public class RoomApi {
     
     @GetMapping("/limits")
     public List<RoomEntity> getLimits( 
-    		@RequestParam(required=true ,value="startDate") String stDate,
-    		@RequestParam(required=true ,value="startTime") String stTime,
-    		@RequestParam(required=true ,value="endDate") String enDate,
-    		@RequestParam(required=true ,value="endTime") String enTime 
+    		@RequestParam(required=false ,value="limit") int limit,
+    		@RequestParam(required=false ,value="startDate") String stDate,
+    		@RequestParam(required=false ,value="startTime") String stTime,
+    		@RequestParam(required=false ,value="endDate") String enDate,
+    		@RequestParam(required=false ,value="endTime") String enTime 
     		) {
     	List<RoomEntity> result = new ArrayList<RoomEntity>();
     	//B		21-06-2021	13.00	21-06-2021	15.00
-    	List<RoomEntity> list = this.reps.findByRoomLimitGreaterThanEqual(0);
+    	List<RoomEntity> list = this.reps.findByRoomLimitGreaterThanEqual(limit);
     	//list = A , B , C
     	for(int i = 0; i < list.size(); i++) {
     		RoomEntity re = list.get(i);
     		//this.rbReps.find/
     		//where roomid = ? and startDate = reqStartDate
     		boolean isAdd = true;
-    		List<RoomBookEntity> listRb = new ArrayList<RoomBookEntity>();
-    		
-    		//this.rbReps.findBy....
+		
+    		List<RoomBookEntity> listRb = this.rbReps.findByRoomId(re.getId());
+    		//this.rbReps.findByAll();
     		//B	21-06-2021  8.00   21-06-2021  10.00
     		//B	21-06-2021  14.00   21-06-2021  15.00
     		for(int x = 0; x < listRb.size(); x++) {
-    			RoomBookEntity rb = listRb.get(i);
-    			
+    			RoomBookEntity rb = listRb.get(x);
+    			     
     			//rb.getStartDate() rb.getStartTime()        stDate stTime         rb.getEndDate()  rb.getEndTime()
     			//rb.getStartDate() rb.getStartTime()        enDate enTime         rb.getEndDate()  rb.getEndTime()
     			//stDate stTime  		rb.getStartDate() rb.getStartTime()  &  rb.getEndDate()  rb.getEndTime()   enDate enTime
@@ -98,6 +99,7 @@ public class RoomApi {
      	book.setEndDate(serch.getEndDate());
      	book.setStartTime(serch.getStartTime());
      	book.setEndTime(serch.getEndTime());
+     	
      	
      	List<RoomEntity> result = new ArrayList<RoomEntity>();
      	//B		21-06-2021	13.00	21-06-2021	15.00

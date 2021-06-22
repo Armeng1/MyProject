@@ -16,4 +16,5 @@ public interface RoomBooksRepository extends JpaRepository<RoomBookEntity, Long>
 	public List<RoomBookEntity> findByEndDate(String enddate);
 	public List<RoomBookEntity> findByStartTime(String starttime);
 	public List<RoomBookEntity> findByEndTime(String endtime);
+	public List<RoomBookEntity> findByRoomId(Long id);
 }

@@ -15,8 +15,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class RoomEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "Id", unique = true, nullable = false)
-	private long Id;
+	@Column(name = "id", unique = true, nullable = false)
+	private long id;
 	
 	private String roomName;
 	private String photo;
@@ -24,10 +24,10 @@ public class RoomEntity {
 	private String roomDetail;
 	
 	public long getId() {
-		return Id;
+		return id;
 	}
 	public void setId(long id) {
-		Id = id;
+		id = id;
 	}
 	public String getRoomName() {
 		return roomName;

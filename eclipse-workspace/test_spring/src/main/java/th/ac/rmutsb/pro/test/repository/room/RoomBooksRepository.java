@@ -12,6 +12,8 @@ import th.ac.rmutsb.pro.test.entity.room.RoomBookEntity;
 public interface RoomBooksRepository extends JpaRepository<RoomBookEntity, Long>{
 	
 	public List<RoomBookEntity> findByStatus(String status);
-	public List<RoomBookEntity> findByStartDateAndEndDate(String startdate, String enddate);
-	public List<RoomBookEntity> findByStartTimeAndEndTime(String starttime, String endtime);
+	public List<RoomBookEntity> findByStartDate(String startdate);
+	public List<RoomBookEntity> findByEndDate(String enddate);
+	public List<RoomBookEntity> findByStartTime(String starttime);
+	public List<RoomBookEntity> findByEndTime(String endtime);
 }

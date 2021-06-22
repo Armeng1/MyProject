@@ -65,7 +65,9 @@ public class RoomApi {
     		//this.rbReps.find/
     		//where roomid = ? and startDate = reqStartDate
     		boolean isAdd = true;
-    		List<RoomBookEntity> listRb = new ArrayList();//this.rbReps.findBy....
+    		List<RoomBookEntity> listRb = new ArrayList<RoomBookEntity>();
+    		
+    		//this.rbReps.findBy....
     		//B	21-06-2021  8.00   21-06-2021  10.00
     		//B	21-06-2021  14.00   21-06-2021  15.00
     		for(int x = 0; x < listRb.size(); x++) {

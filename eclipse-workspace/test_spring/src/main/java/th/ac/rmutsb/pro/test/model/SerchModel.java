@@ -2,6 +2,7 @@ package th.ac.rmutsb.pro.test.model;
 
 public class SerchModel {
 	
+	private String serchId;
 	private String startDate;
 	private String endDate;
 	private String startTime;
@@ -9,6 +10,15 @@ public class SerchModel {
 	private int roomLimit;
 	
 	public SerchModel() {
+	}
+
+	
+	public String getSerchId() {
+		return serchId;
+	}
+
+	public void setSerchId(String serchId) {
+		this.serchId = serchId;
 	}
 
 	public String getStartDate() {

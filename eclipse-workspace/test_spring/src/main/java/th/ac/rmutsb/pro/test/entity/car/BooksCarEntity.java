@@ -10,7 +10,7 @@ import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
+import java.sql.Timestamp;
 
 @Entity
 public class BooksCarEntity {
@@ -35,6 +35,7 @@ public class BooksCarEntity {
 	private String endTime;
 	private String remark;
 	private String status;
+	
 	
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="car_entity" ,insertable = true, updatable = true)

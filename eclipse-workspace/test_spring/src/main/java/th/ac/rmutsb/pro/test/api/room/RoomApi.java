@@ -86,9 +86,6 @@ public class RoomApi {
         return result;
     }
     
-<<<<<<< HEAD
-
-=======
     
     /* @PostMapping("/limits")
     public RoomEntity SerchBook(@RequestBody SerchModel serch){
@@ -135,7 +132,6 @@ public class RoomApi {
      	}
          return null;
      }*/
->>>>>>> localArm
 
     @PostMapping
     public RoomEntity createRoom(@RequestBody RoomEntity room) {

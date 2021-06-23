@@ -86,7 +86,56 @@ public class RoomApi {
         return result;
     }
     
+<<<<<<< HEAD
 
+=======
+    
+    /* @PostMapping("/limits")
+    public RoomEntity SerchBook(@RequestBody SerchModel serch){
+     	RoomEntity room = new RoomEntity();
+     	RoomBookEntity book = new RoomBookEntity();
+     	room.setRoomLimit(serch.getRoomLimit());
+     	book.setStartDate(serch.getStartDate());
+     	book.setEndDate(serch.getEndDate());
+     	book.setStartTime(serch.getStartTime());
+     	book.setEndTime(serch.getEndTime());
+     	
+     	
+     	List<RoomEntity> result = new ArrayList<RoomEntity>();
+     	//B		21-06-2021	13.00	21-06-2021	15.00
+     	
+     	List<RoomEntity> list = this.reps.findByRoomLimitGreaterThanEqual(serch);
+     	
+     	//B		21-06-2021	13.00	21-06-2021	15.00
+     	
+     	//list = A , B , C
+     	for(int i = 0; i < list.size(); i++) {
+     		RoomEntity re = list.get(i);
+     		//this.rbReps.find/
+     		//where roomid = ? and startDate = reqStartDate
+     		boolean isAdd = true;
+     		List<RoomBookEntity> listRb = new ArrayList();//this.rbReps.findBy....
+     		//B	21-06-2021  8.00   21-06-2021  10.00
+     		//B	21-06-2021  14.00   21-06-2021  15.00
+     		for(int x = 0; x < listRb.size(); x++) {
+     			RoomBookEntity rb = listRb.get(i);
+     			
+     			//rb.getStartDate() rb.getStartTime()        stDate stTime         rb.getEndDate()  rb.getEndTime()
+     			//rb.getStartDate() rb.getStartTime()        enDate enTime         rb.getEndDate()  rb.getEndTime()
+     			//stDate stTime  		rb.getStartDate() rb.getStartTime()  &  rb.getEndDate()  rb.getEndTime()   enDate enTime
+     			if(true) {
+     				isAdd = false;
+     				break;
+     			}
+     		}
+     		
+     		if(isAdd) {
+     			result.add(re);
+     		}
+     	}
+         return null;
+     }*/
+>>>>>>> localArm
 
     @PostMapping
     public RoomEntity createRoom(@RequestBody RoomEntity room) {

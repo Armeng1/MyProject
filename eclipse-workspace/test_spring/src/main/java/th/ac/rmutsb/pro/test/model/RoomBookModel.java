@@ -21,6 +21,7 @@ public class RoomBookModel {
 	private String endTime;
 	private String remark;
 	private String status;
+	//private int isopen;
 	
 	public RoomBookModel() {
 	}
@@ -85,6 +86,18 @@ public class RoomBookModel {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
+	/*public boolean isOpen() {
+		return this.isopen == 1;
+	}
+	public void setOpenStatus(int status_code) {
+		this.isopen = status_code;
+	}
+	public int getIsopen() {
+		return isopen;
+	}
+	public void setIsopen(int isopen) {
+		this.isopen = isopen;
+	}*/
+
 	
 }

@@ -66,7 +66,7 @@ public class RoomBookApi {
     	entity.setEndTime(roombook.getEndTime());
     	entity.setRemark(roombook.getRemark());
     	entity.setStatus(roombook.getStatus());
- 
+    	//entity.setOpenStatus(roombook.getIsopen());
     	Optional<RoomEntity> op = this.reps.findById(roombook.getRoomId());
     	if(op.isPresent()) {
     		entity.setRoom(op.get());
@@ -97,6 +97,7 @@ public class RoomBookApi {
     	editbook.setRemark(book.getRemark());
     	editbook.setStatus(book.getStatus());
     	editbook.setRoom(book.getRoom());
+    	//editbook.setOpenStatus(book.getIsopen());
     	return this.regisReps.save(editbook);
     }
 }

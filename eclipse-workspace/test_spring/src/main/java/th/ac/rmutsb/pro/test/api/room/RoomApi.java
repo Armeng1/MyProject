@@ -52,10 +52,10 @@ public class RoomApi {
     @GetMapping("/limits")
     public List<RoomEntity> getLimits( 
     		@RequestParam(required=true ,value="roomlimit") int roomlimit,
-    		@RequestParam(required=false ,value="startDate") String stDate,
-    		@RequestParam(required=false ,value="startTime") String stTime,
-    		@RequestParam(required=false ,value="endDate") String enDate,
-    		@RequestParam(required=false ,value="endTime") String enTime 
+    		@RequestParam(required=true ,value="startDate") String stDate,
+    		@RequestParam(required=true ,value="startTime") String stTime,
+    		@RequestParam(required=true ,value="endDate") String enDate,
+    		@RequestParam(required=true ,value="endTime") String enTime 
     		) {
     	List<RoomEntity> result = new ArrayList<RoomEntity>();
     	//B		21-06-2021	13.00	21-06-2021	15.00
@@ -73,18 +73,19 @@ public class RoomApi {
     		//B	21-06-2021  14.00   21-06-2021  15.00
     		for(int x = 0; x < listRb.size(); x++) {
     			RoomBookEntity rb = listRb.get(x);
-    			     
-    			//rb.getStartDate() rb.getStartTime()        stDate stTime         rb.getEndDate()  rb.getEndTime()
-    			//rb.getStartDate() rb.getStartTime()        enDate enTime         rb.getEndDate()  rb.getEndTime()
-    			//stDate stTime  		rb.getStartDate() rb.getStartTime()  &  rb.getEndDate()  rb.getEndTime()   enDate enTime
-    			
-    			if(true) {
-
+    			if (StampHelper.isOverlapping(
+    					StampHelper.convertTimeStamp(rb.getStartDate(),rb.getStartTime()),
+    					StampHelper.convertTimeStamp(rb.getEndDate(),rb.getEndTime()),
+    					StampHelper.convertTimeStamp(stDate,stTime),
+    					StampHelper.convertTimeStamp(enDate,enTime)
+    					)) {
     				isAdd = false;
     				break;
     			}
+    			//rb.getStartDate() rb.getStartTime()        stDate stTime         rb.getEndDate()  rb.getEndTime()
+    			//rb.getStartDate() rb.getStartTime()        enDate enTime         rb.getEndDate()  rb.getEndTime()
+    			//stDate stTime  		rb.getStartDate() rb.getStartTime()  &  rb.getEndDate()  rb.getEndTime()   enDate enTime
     		}
-    		
     		if(isAdd) {
     			result.add(re);
     		}

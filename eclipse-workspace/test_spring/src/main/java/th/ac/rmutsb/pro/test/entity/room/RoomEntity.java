@@ -27,7 +27,7 @@ public class RoomEntity {
 		return id;
 	}
 	public void setId(long id) {
-		id = id;
+		this.id = id;
 	}
 	public String getRoomName() {
 		return roomName;

@@ -1,5 +1,7 @@
 package th.ac.rmutsb.pro.test.entity.room;
 
+import java.sql.Timestamp;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -35,9 +37,10 @@ public class RoomBookEntity {
 	private String endTime;
 	private String remark;
 	private String status;
+	//private int isopen;
 	
 	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="room_entity" ,insertable = true, updatable = true)
+	@JoinColumn(name="roomId" ,insertable = true, updatable = true)
 	@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
 	private RoomEntity room;
 	
@@ -107,6 +110,20 @@ public class RoomBookEntity {
 	public void setRoom( RoomEntity room) {
 		this.room = room;
 	}
+	/*public boolean isopen() {
+		return this.isopen == 1;
+	}
+	public void setOpenStatus(int status_code) {
+		this.isopen = status_code;
+	}
+	public int getIsopen() {
+		return isopen;
+	}
+	public void setIsopen(int isopen) {
+		this.isopen = isopen;
+	}*/
+	
+	
 	@Override
 	public String toString() {
 		return "RoomBookEntity [Id=" + Id + ", email=" + email + ", name=" + name + ", title=" + title + ", startDate="

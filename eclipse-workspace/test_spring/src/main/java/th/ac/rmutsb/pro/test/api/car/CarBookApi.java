@@ -45,8 +45,7 @@ public class CarBookApi {
     @GetMapping
     public Page<BooksCarEntity> getBkcarPages(@RequestParam(defaultValue = "0") int page , @RequestParam(defaultValue = "10") int size) {
     	return this.regisReps.findAll(PageRequest.of(page, size));
-    }
-    
+    }  
     @PostMapping
     public BooksCarEntity createBook(@RequestBody CarBookModel bkcar) {
     	BooksCarEntity entitycar = new BooksCarEntity();

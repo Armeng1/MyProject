@@ -21,7 +21,6 @@ import th.ac.rmutsb.pro.test.entity.room.RoomBookEntity;
 import th.ac.rmutsb.pro.test.entity.room.RoomEntity;
 import th.ac.rmutsb.pro.test.exception.ResourceNotFoundException;
 import th.ac.rmutsb.pro.test.model.RoomBookModel;
-import th.ac.rmutsb.pro.test.model.SerchModel;
 import th.ac.rmutsb.pro.test.repository.room.RoomBooksRepository;
 import th.ac.rmutsb.pro.test.repository.room.RoomRepository;
 
@@ -58,7 +57,7 @@ public class RoomApi {
     		) {
     	List<RoomEntity> result = new ArrayList<RoomEntity>();
     	//B		21-06-2021	13.00	21-06-2021	15.00
-    	List<RoomEntity> list = this.reps.findByRoomLimitGreaterThanEqual(0);
+    	List<RoomEntity> list = this.reps.findByRoomLimitGreaterThanEqual(0);// where roomlimit >= 0 , roomlimit = 0
     	//list = A , B , C
     	for(int i = 0; i < list.size(); i++) {
     		RoomEntity re = list.get(i);

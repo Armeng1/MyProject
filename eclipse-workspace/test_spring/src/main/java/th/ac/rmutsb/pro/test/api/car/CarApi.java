@@ -1,5 +1,6 @@
 package th.ac.rmutsb.pro.test.api.car;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import th.ac.rmutsb.pro.test.entity.car.BooksCarEntity;
 import th.ac.rmutsb.pro.test.entity.car.CarEntity;
 import th.ac.rmutsb.pro.test.exception.ResourceNotFoundException;
 import th.ac.rmutsb.pro.test.repository.car.CarRepository;
@@ -38,6 +40,33 @@ public class CarApi {
 	 public Page<CarEntity> getCarsPages(@RequestParam(defaultValue = "0") int page , @RequestParam(defaultValue = "10") int size) {
 	  return this.reps.findAll(PageRequest.of(page, size));
 	 }
+	 @GetMapping("/limits")
+	    public List<CarEntity> getLimits( 
+	    		@RequestParam(required=true ,value="startDate") String stDate,
+	    		@RequestParam(required=true ,value="startTime") String stTime,
+	    		@RequestParam(required=true ,value="endDate") String enDate,
+	    		@RequestParam(required=true ,value="endTime") String enTime 
+	    		) {
+	    	List<CarEntity> cesult = new ArrayList<CarEntity>();
+	    	List<CarEntity> list = this.reps.findByCarLimitGreaterThanEqual(0);
+	    	for(int i = 0; i < list.size(); i++) {
+	    		CarEntity ce = list.get(i);
+	    		boolean isAdd = true;
+	    		List<BooksCarEntity> listCb = new ArrayList();
+	    		for(int x = 0; x < listCb.size(); x++) {
+	    			BooksCarEntity cb = listCb.get(i);
+	    			if(true) {
+	    				isAdd = false;
+	    				break;
+	    			}
+	    		}
+	    		
+	    		if(isAdd) {
+	    			cesult.add(ce);
+	    		}
+	    	}
+	        return cesult;
+	    }
 	
 	@PostMapping
 	public CarEntity createCar(@RequestBody CarEntity car) {

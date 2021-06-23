@@ -26,30 +26,39 @@ public class RoomEntity {
 	public long getId() {
 		return id;
 	}
+	
 	public void setId(long id) {
 		this.id = id;
 	}
+	
 	public String getRoomName() {
 		return roomName;
 	}
+	
 	public void setRoomName(String roomName) {
 		this.roomName = roomName;
 	}
+	
 	public String getPhoto() {
 		return photo;
 	}
+	
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
+	
 	public int getRoomLimit() {
 		return roomLimit;
 	}
+	
 	public void setRoomLimit(int roomLimit) {
 		this.roomLimit = roomLimit;
 	}
+	
 	public String getRoomDetail() {
 		return roomDetail;
 	}
+	
 	public void setRoomDetail(String roomDetail) {
 		this.roomDetail = roomDetail;
 	}

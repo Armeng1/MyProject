@@ -88,6 +88,7 @@ public class CarBookApi {
     	editbkcar.setEndTime(bkcar.getEndTime());
     	editbkcar.setRemark(bkcar.getRemark());
     	editbkcar.setStatus(bkcar.getStatus());
+    	editbkcar.setCar(bkcar.getCar());
     	return this.regisReps.save(editbkcar);
     }
 }

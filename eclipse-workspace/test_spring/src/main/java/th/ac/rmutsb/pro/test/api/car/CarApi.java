@@ -55,7 +55,6 @@ public class CarApi {
 	    	for(int i = 0; i < list.size(); i++) {
 	    		CarEntity ce = list.get(i);
 	    		boolean isAdd = true;
-	    		
 	    		List<BooksCarEntity> listCb = this.regisReps.findByCarCarId(ce.getCarId());
 	    		for(int x = 0; x < listCb.size(); x++) {
 	    			BooksCarEntity cb = listCb.get(x);

@@ -9,5 +9,5 @@ import th.ac.rmutsb.pro.test.entity.car.CarEntity;
 
 public interface CarRepository extends JpaRepository<CarEntity, Long>{
 	
-	public List<CarEntity> findByCarLimitGreaterThanEqual(int carlimit);
+	public List<CarEntity> findByCarLimitGreaterThanEqual(int size);
 }

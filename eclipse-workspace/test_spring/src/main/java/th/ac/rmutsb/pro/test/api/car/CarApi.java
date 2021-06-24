@@ -16,16 +16,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import th.ac.rmutsb.pro.test.api.room.StampHelper;
 import th.ac.rmutsb.pro.test.entity.car.BooksCarEntity;
 import th.ac.rmutsb.pro.test.entity.car.CarEntity;
 import th.ac.rmutsb.pro.test.exception.ResourceNotFoundException;
+import th.ac.rmutsb.pro.test.repository.car.CarBooksRepository;
 import th.ac.rmutsb.pro.test.repository.car.CarRepository;
 
 @RestController
 @RequestMapping("/car")
 public class CarApi {
 	@Autowired private CarRepository reps;
-	
+	@Autowired private CarBooksRepository regisReps;
 	
 	@GetMapping("/{id}")
 	public CarEntity getCars(@PathVariable(value = "id") Long carId){
@@ -52,10 +54,16 @@ public class CarApi {
 	    	for(int i = 0; i < list.size(); i++) {
 	    		CarEntity ce = list.get(i);
 	    		boolean isAdd = true;
-	    		List<BooksCarEntity> listCb = new ArrayList();
+	    		
+	    		List<BooksCarEntity> listCb = this.regisReps.findByCarid(ce.getCarId());
 	    		for(int x = 0; x < listCb.size(); x++) {
 	    			BooksCarEntity cb = listCb.get(i);
-	    			if(true) {
+	    			 if (StampHelper.isOverlapping(
+	                         StampHelper.convertTimeStamp(cb.getStartDate(),cb.getStartTime()),
+	                         StampHelper.convertTimeStamp(cb.getEndDate(),cb.getEndTime()),
+	                         StampHelper.convertTimeStamp(stDate,stTime),
+	                         StampHelper.convertTimeStamp(enDate,enTime)
+	                         )) {
 	    				isAdd = false;
 	    				break;
 	    			}

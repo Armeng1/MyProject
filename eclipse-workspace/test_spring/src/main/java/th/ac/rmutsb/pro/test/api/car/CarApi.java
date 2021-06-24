@@ -50,15 +50,15 @@ public class CarApi {
 	    		@RequestParam(required=true ,value="endDate") String enDate,
 	    		@RequestParam(required=true ,value="endTime") String enTime 
 	    		) {
-	    	List<CarEntity> cesult = new ArrayList<CarEntity>();
-	    	List<CarEntity> list = this.reps.findByCarLimitGreaterThanEqual(0);
+	    	List<CarEntity> result = new ArrayList<CarEntity>();
+	    	List<CarEntity> list = this.reps.findBySizeGreaterThanEqual(size);
 	    	for(int i = 0; i < list.size(); i++) {
 	    		CarEntity ce = list.get(i);
 	    		boolean isAdd = true;
 	    		
-	    		List<BooksCarEntity> listCb = this.regisReps.findByCarid(ce.getCarId());
+	    		List<BooksCarEntity> listCb = this.regisReps.findByCarCarId(ce.getCarId());
 	    		for(int x = 0; x < listCb.size(); x++) {
-	    			BooksCarEntity cb = listCb.get(i);
+	    			BooksCarEntity cb = listCb.get(x);
 	    			 if (StampHelper.isOverlapping(
 	                         StampHelper.convertTimeStamp(cb.getStartDate(),cb.getStartTime()),
 	                         StampHelper.convertTimeStamp(cb.getEndDate(),cb.getEndTime()),
@@ -71,10 +71,10 @@ public class CarApi {
 	    		}
 	    		
 	    		if(isAdd) {
-	    			cesult.add(ce);
+	    			result.add(ce);
 	    		}
 	    	}
-	        return cesult;
+	        return result;
 	    }
 	
 	@PostMapping

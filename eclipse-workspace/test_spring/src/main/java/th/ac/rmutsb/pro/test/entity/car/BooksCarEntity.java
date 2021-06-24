@@ -38,7 +38,7 @@ public class BooksCarEntity {
 	
 	
 	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="carId" ,insertable = true, updatable = true)
+	@JoinColumn(name="car_entity" ,insertable = true, updatable = true)
 	@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
 	private CarEntity car;
 	

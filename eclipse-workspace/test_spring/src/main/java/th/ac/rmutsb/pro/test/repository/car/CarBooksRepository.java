@@ -16,5 +16,5 @@ public interface CarBooksRepository extends JpaRepository<BooksCarEntity, Long>{
 	public List<BooksCarEntity> findByEndDate(String enddate);
 	public List<BooksCarEntity> findBystartTime(String starttime);
 	public List<BooksCarEntity> findByEndTime(String endtime);
-	public List<BooksCarEntity> findByCarid(Long id);
+	public List<BooksCarEntity> findByCarCarId(Long carid);
 }

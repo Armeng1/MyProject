@@ -17,8 +17,10 @@ public class CarEntity {
 		private int size;
 		private String detail;
 		private String carColor;
+		private int carLimit;
 		
 
+		
 		/*@ManyToOne(fetch=FetchType.LAZY)
 	    @JoinColumn(name="car_type" ,insertable = true, updatable = true)
 	    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
@@ -66,7 +68,12 @@ public class CarEntity {
 			this.carColor = carColor;
 		}
 		
-
+		public int getCarLimit() {
+			return carLimit;
+		}
+		public void setCarLimit(int carLimit) {
+			this.carLimit = carLimit;
+		}
 	
 		/*@Override
 	    public String toString() {

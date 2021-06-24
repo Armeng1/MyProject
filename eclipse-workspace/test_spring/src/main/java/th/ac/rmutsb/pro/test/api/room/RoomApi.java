@@ -50,6 +50,7 @@ public class RoomApi {
     
     @GetMapping("/limits")
     public List<RoomEntity> getLimits( 
+    		@RequestParam(required=true ,value="roomlimit") int roomlimit,
     		@RequestParam(required=true ,value="startDate") String stDate,
     		@RequestParam(required=true ,value="startTime") String stTime,
     		@RequestParam(required=true ,value="endDate") String enDate,
@@ -57,28 +58,33 @@ public class RoomApi {
     		) {
     	List<RoomEntity> result = new ArrayList<RoomEntity>();
     	//B		21-06-2021	13.00	21-06-2021	15.00
-    	List<RoomEntity> list = this.reps.findByRoomLimitGreaterThanEqual(0);// where roomlimit >= 0 , roomlimit = 0
+    	List<RoomEntity> list = this.reps.findByRoomLimitGreaterThanEqual(roomlimit);
     	//list = A , B , C
     	for(int i = 0; i < list.size(); i++) {
     		RoomEntity re = list.get(i);
     		//this.rbReps.find/
     		//where roomid = ? and startDate = reqStartDate
     		boolean isAdd = true;
-    		List<RoomBookEntity> listRb = new ArrayList();//this.rbReps.findBy....
+		
+    		List<RoomBookEntity> listRb = this.rbReps.findByRoomId(re.getId());
+    		//this.rbReps.findBy
     		//B	21-06-2021  8.00   21-06-2021  10.00
     		//B	21-06-2021  14.00   21-06-2021  15.00
     		for(int x = 0; x < listRb.size(); x++) {
-    			RoomBookEntity rb = listRb.get(i);
-    			
-    			//rb.getStartDate() rb.getStartTime()        stDate stTime         rb.getEndDate()  rb.getEndTime()
-    			//rb.getStartDate() rb.getStartTime()        enDate enTime         rb.getEndDate()  rb.getEndTime()
-    			//stDate stTime  		rb.getStartDate() rb.getStartTime()  &  rb.getEndDate()  rb.getEndTime()   enDate enTime
-    			if(true) {
+    			RoomBookEntity rb = listRb.get(x);
+    			if (StampHelper.isOverlapping(
+    					StampHelper.convertTimeStamp(rb.getStartDate(),rb.getStartTime()),
+    					StampHelper.convertTimeStamp(rb.getEndDate(),rb.getEndTime()),
+    					StampHelper.convertTimeStamp(stDate,stTime),
+    					StampHelper.convertTimeStamp(enDate,enTime)
+    					)) {
     				isAdd = false;
     				break;
     			}
+    			//rb.getStartDate() rb.getStartTime()        stDate stTime         rb.getEndDate()  rb.getEndTime()
+    			//rb.getStartDate() rb.getStartTime()        enDate enTime         rb.getEndDate()  rb.getEndTime()
+    			//stDate stTime  		rb.getStartDate() rb.getStartTime()  &  rb.getEndDate()  rb.getEndTime()   enDate enTime
     		}
-    		
     		if(isAdd) {
     			result.add(re);
     		}

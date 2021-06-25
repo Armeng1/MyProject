@@ -57,21 +57,17 @@ public class RoomApi {
     		@RequestParam(required=true ,value="endTime") String enTime 
     		) {
     	List<RoomEntity> result = new ArrayList<RoomEntity>();
-    	//B		21-06-2021	13.00	21-06-2021	15.00
+    	
     	List<RoomEntity> list = this.reps.findByRoomLimitGreaterThanEqual(roomlimit);
-    	//list = A , B , C
     	for(int i = 0; i < list.size(); i++) {
     		RoomEntity re = list.get(i);
-    		//this.rbReps.find/
-    		//where roomid = ? and startDate = reqStartDate
+    		
     		boolean isAdd = true;
 		
     		List<RoomBookEntity> listRb = this.rbReps.findByRoomId(re.getId());
-    		//this.rbReps.findBy
-    		//B	21-06-2021  8.00   21-06-2021  10.00
-    		//B	21-06-2021  14.00   21-06-2021  15.00
     		for(int x = 0; x < listRb.size(); x++) {
     			RoomBookEntity rb = listRb.get(x);
+    			
     			if (StampHelper.isOverlapping(
     					StampHelper.convertTimeStamp(rb.getStartDate(),rb.getStartTime()),
     					StampHelper.convertTimeStamp(rb.getEndDate(),rb.getEndTime()),
@@ -81,9 +77,6 @@ public class RoomApi {
     				isAdd = false;
     				break;
     			}
-    			//rb.getStartDate() rb.getStartTime()        stDate stTime         rb.getEndDate()  rb.getEndTime()
-    			//rb.getStartDate() rb.getStartTime()        enDate enTime         rb.getEndDate()  rb.getEndTime()
-    			//stDate stTime  		rb.getStartDate() rb.getStartTime()  &  rb.getEndDate()  rb.getEndTime()   enDate enTime
     		}
     		if(isAdd) {
     			result.add(re);

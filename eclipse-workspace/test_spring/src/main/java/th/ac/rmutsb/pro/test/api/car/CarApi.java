@@ -44,14 +44,14 @@ public class CarApi {
 	 }
 	 @GetMapping("/limits")
 	    public List<CarEntity> getLimits( 
-	    		@RequestParam(required=true ,value="size") int size,
+	    		//@RequestParam(required=true ,value="size") int size,
 	    		@RequestParam(required=true ,value="startDate") String stDate,
 	    		@RequestParam(required=true ,value="startTime") String stTime,
 	    		@RequestParam(required=true ,value="endDate") String enDate,
 	    		@RequestParam(required=true ,value="endTime") String enTime 
 	    		) {
 	    	List<CarEntity> result = new ArrayList<CarEntity>();
-	    	List<CarEntity> list = this.reps.findBySizeGreaterThanEqual(size);
+	    	List<CarEntity> list = this.reps.findAll();
 	    	for(int i = 0; i < list.size(); i++) {
 	    		CarEntity ce = list.get(i);
 	    		boolean isAdd = true;

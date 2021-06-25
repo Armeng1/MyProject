@@ -1,4 +1,4 @@
-package th.ac.rmutsb.pro.test.api.room;
+package th.ac.rmutsb.pro.test.config.helper;
 
 import java.sql.Timestamp;
 

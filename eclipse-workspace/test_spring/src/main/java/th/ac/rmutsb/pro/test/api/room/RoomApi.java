@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import th.ac.rmutsb.pro.test.config.helper.StampHelper;
 import th.ac.rmutsb.pro.test.entity.room.RoomBookEntity;
 import th.ac.rmutsb.pro.test.entity.room.RoomEntity;
 import th.ac.rmutsb.pro.test.exception.ResourceNotFoundException;
